@@ -11,7 +11,7 @@ VALUES ";
 	for($i=0;$i<count($_POST['firstname']);$i++)
 	{
                   
-		$s .="('".$inv_table."','".$_POST['firstname'][$i]."','".$_POST['lastname'][$i]."','".$_POST['middle'][$i]."','".$_POST['email'][$i]."','".$_POST['phone'][$i]."','".$_POST['passportnumber'][$i]."','".$_POST['issuedate'][$i]."','".$_POST['expirydate'][$i]."','".$_POST['issuingcountry'][$i]."','".$_POST['gender'][$i]."','".$_POST['nationality'][$i]."',curdate()),";
+		$s .="('".$inv_table."','".$_POST['firstname'][$i]."','".$_POST['lastname'][$i]."','".$_POST['middle'][$i]."','".$_POST['email'][$i]."','".$_POST['phoneNumber'][$i]."','".$_POST['passportnumber'][$i]."','".$_POST['issuedate'][$i]."','".$_POST['expirydate'][$i]."','".$_POST['issuingcountry'][$i]."','".$_POST['gender'][$i]."','".$_POST['nationality'][$i]."',curdate()),";
 	}
 	$s = rtrim($s,",");
 	if(!mysqli_query($con,$s))

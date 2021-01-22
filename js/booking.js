@@ -73,7 +73,7 @@ localStorage.getItem('adultcount');
                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                     <label>Phone</label>
-                                                        <input type="tel" name="phone[]" placeholder="phone number" pattern="[0-9]" required>
+                                                        <input type="number" name="phoneNumber[]" placeholder="phone number" pattern="[0-9]" required>
                                                     </div>
                                                 </div>
                                                <br> <div class="col-md-12"><h3> Passport Details </h3></div>
