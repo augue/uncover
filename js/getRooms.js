@@ -42,11 +42,11 @@ var type = 0;
 //            start: limitStart
         },
         success: function(data) {
-             $("#dep_details").empty();
+             $(".dep_details").empty();
                $.each(data, function(key,value) {
                
            
- $("#dep_details").append(`<tbody><tr>
+ $(".dep_details").append(`<tbody><tr>
                                     <td>Departure airport</td>
                                     <td>${value.dep_airport}</td>
                                 </tr>
