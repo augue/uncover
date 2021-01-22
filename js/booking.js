@@ -699,7 +699,8 @@ function loadResults(limitStart,type) {
 
  loadResults(0,0);
 var win = {
-    total:0
+    total:0,
+    count:0
 };
 function summary1() {
    
@@ -796,3 +797,119 @@ alert("failed")
 		}
 	});
 	
+
+
+
+
+
+function loadPassengers() {
+  
+//	$("#loading").show();
+var type = 0;
+    $.ajax({
+      url: "backend/viewPassengerList.php",
+        type: "POST",
+        dataType: "json",
+        data: {
+             type: type
+//            start: limitStart
+        },
+        success: function(data) {
+             $(".passenger").empty();
+               $.each(data, function(key,value) {
+               
+           
+ $(".passenger").append(`<h5 style="margin-top:20px;">Passenger ${win.count = win.count + 1} </h5>
+             
+<table>
+                                            <tbody><tr>
+                                                <td>Booking Number</td>
+                                                <td>${value.bookedValue}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>First Name</td>
+                                                <td>${value.firstname}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Last Name</td>
+                                                <td>${value.lastname}</td>
+                                            </tr>
+                   <tr>
+                                                <td>Gender</td>
+                                                <td>${value.gender}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email Address</td>
+                                                <td>${value.email}</td>
+                                            </tr>
+                                         
+                                                <td>Phone Number</td>
+                                                <td>${value.phone}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nationality</td>
+                                                <td>${value.nationality}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Passport Number</td>
+                                                <td>${value.nationality}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Date Issued</td>
+                                                <td>${value.dateIssued}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Expiry Date</td>
+                                                <td>${value.exp_date}</td>
+                                            </tr>
+                   
+                   <tr>
+                                                <td>Issuing Country</td>
+                                                <td>${value.iss_country}</td>
+                                            </tr>
+                                        </tbody></table>
+
+
+
+
+
+
+
+`);
+
+               });
+               
+//             $("#loading").hide();    
+        }
+    });
+};
+loadPassengers();
+
+
+function mailer() {
+  
+var mailerVar = $('#bookingSummary').html();
+console.log(mailerVar);
+var type = 0;
+    $.ajax({
+      url: "backend/mailer.php",
+        type: "POST",
+        dataType: "json",
+        data: {
+             type: mailerVar
+//            start: limitStart
+        },
+        success: function(data) {
+//             $(".passenger").empty();
+               $.each(data, function(key,value) {
+               
+           
+
+
+               });
+               
+//             $("#loading").hide();    
+        }
+    });
+};
+loadPassengers();
